@@ -1,0 +1,305 @@
+/* ===== General ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* ===== Header ===== */
+.header {
+    background-color: #1e3a5f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.header p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #aac4e0;
+}
+
+/* ===== Navigation ===== */
+.nav {
+    background-color: #2c5f8a;
+    text-align: center;
+    padding: 0;
+}
+
+.nav a {
+    display: inline-block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    background-color: #1e3a5f;
+}
+
+.nav a.active {
+    background-color: #163050;
+    font-weight: bold;
+}
+
+/* ===== Content Container ===== */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 0;
+}
+
+/* ===== Section Box ===== */
+.section {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin-top: 0;
+    color: #1e3a5f;
+    font-size: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* ===== Tables ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #1e3a5f;
+    color: white;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+tr:hover {
+    background-color: #f0f4f8;
+}
+
+/* ===== Status Colors ===== */
+.status-present {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.status-absent {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.status-late {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* ===== Forms ===== */
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    max-width: 100%;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2c5f8a;
+    outline: none;
+}
+
+/* ===== Buttons ===== */
+button {
+    padding: 9px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.btn-blue {
+    background-color: #2c5f8a;
+    color: white;
+}
+
+.btn-blue:hover {
+    background-color: #1e3a5f;
+}
+
+.btn-green {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #1e8e4e;
+}
+
+.btn-red {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-red:hover {
+    background-color: #c0392b;
+}
+
+.btn-small {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+/* ===== Alert Messages ===== */
+.alert {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: none;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===== Summary List ===== */
+.summary-list {
+    list-style: none;
+    padding: 0;
+}
+
+.summary-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.summary-list li:last-child {
+    border-bottom: none;
+}
+
+/* ===== Info List ===== */
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 6px 0;
+    font-size: 15px;
+}
+
+/* ===== Bar Chart ===== */
+.bar-container {
+    margin-bottom: 10px;
+}
+
+.bar-label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.bar-track {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    height: 22px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 8px;
+    line-height: 22px;
+}
+
+.bar-green { background-color: #27ae60; }
+.bar-orange { background-color: #f39c12; }
+.bar-red { background-color: #e74c3c; }
+
+/* ===== Schedule Table Colors ===== */
+.schedule-web { background-color: #e3f2fd; }
+.schedule-lab { background-color: #fff3e0; }
+.schedule-office { background-color: #e8f5e9; }
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    color: #888;
+    font-size: 13px;
+}
+
+.footer a {
+    color: #2c5f8a;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

@@ -1,111 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Attendance Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System - Mark Attendance</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <h1>Attendance Management System</h1>
+    <div class="header">
+        <h1>Attendance Management System</h1>
+        <p>University of Jordan - Web 1 Course</p>
+    </div>
 
-    <hr>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html" class="active">Attendance</a>
+        <a href="students.html">Students</a>
+        <a href="reports.html">Reports</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-    <h2>Course Information</h2>
+    <div class="container">
 
-    <p><b>Course Name:</b> Web 1</p>
-    <p><b>Course Code:</b> WEB101</p>
-    <p><b>Instructor:</b> Dr. Ahmad</p>
-    <p><b>Semester:</b> Second Semester</p>
+        <!-- Date -->
+        <div class="section">
+            <h2>Select Date</h2>
+            <label for="attendanceDate">Date:</label>
+            <input type="date" id="attendanceDate">
+        </div>
 
-    <hr>
+        <!-- Search -->
+        <div class="section">
+            <h2>Search Student</h2>
+            <label for="searchInput">Search by ID or name:</label>
+            <input type="text" id="searchInput" placeholder="Enter student ID or name...">
+            <br>
+            <button class="btn-blue" onclick="searchStudent()">Search</button>
+            <button class="btn-blue" onclick="clearSearch()">Show All</button>
+            <p id="searchResult" style="margin-top: 10px; color: #e74c3c; display: none;"></p>
+        </div>
 
-    <h2>Attendance Table</h2>
+        <!-- Attendance Table -->
+        <div class="section">
+            <h2>Mark Attendance</h2>
 
-    <table border="1">
-        <tr>
-            <th>Student ID</th>
-            <th>Student Name</th>
-            <th>Status</th>
-        </tr>
+            <div class="alert alert-success" id="saveAlert">Attendance saved successfully!</div>
 
-        <tr>
-            <td>3237482</td>
-            <td>أحمد محمد</td>
-            <td>Present</td>
-        </tr>
+            <table>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                </tr>
+            </table>
 
-        <tr>
-            <td>3241537</td>
-            <td>سارة خالد</td>
-            <td>Absent</td>
-        </tr>
+            <table id="attendanceTable">
+                <tr data-id="3237482">
+                    <td>3237482</td>
+                    <td>Ahmad Mohammad</td>
+                    <td>
+                        <label><input type="radio" name="status_3237482" value="Present" checked> Present</label>
+                        <label><input type="radio" name="status_3237482" value="Absent"> Absent</label>
+                        <label><input type="radio" name="status_3237482" value="Late"> Late</label>
+                    </td>
+                </tr>
+                <tr data-id="3241537">
+                    <td>3241537</td>
+                    <td>Sara Khaled</td>
+                    <td>
+                        <label><input type="radio" name="status_3241537" value="Present"> Present</label>
+                        <label><input type="radio" name="status_3241537" value="Absent" checked> Absent</label>
+                        <label><input type="radio" name="status_3241537" value="Late"> Late</label>
+                    </td>
+                </tr>
+                <tr data-id="3236821">
+                    <td>3236821</td>
+                    <td>Mohammad Ali</td>
+                    <td>
+                        <label><input type="radio" name="status_3236821" value="Present" checked> Present</label>
+                        <label><input type="radio" name="status_3236821" value="Absent"> Absent</label>
+                        <label><input type="radio" name="status_3236821" value="Late"> Late</label>
+                    </td>
+                </tr>
+                <tr data-id="3244178">
+                    <td>3244178</td>
+                    <td>Lina Ahmad</td>
+                    <td>
+                        <label><input type="radio" name="status_3244178" value="Present" checked> Present</label>
+                        <label><input type="radio" name="status_3244178" value="Absent"> Absent</label>
+                        <label><input type="radio" name="status_3244178" value="Late"> Late</label>
+                    </td>
+                </tr>
+                <tr data-id="3239254">
+                    <td>3239254</td>
+                    <td>Yousef Mahmoud</td>
+                    <td>
+                        <label><input type="radio" name="status_3239254" value="Present"> Present</label>
+                        <label><input type="radio" name="status_3239254" value="Absent" checked> Absent</label>
+                        <label><input type="radio" name="status_3239254" value="Late"> Late</label>
+                    </td>
+                </tr>
+                <tr data-id="3245678">
+                    <td>3245678</td>
+                    <td>Noor Khaled</td>
+                    <td>
+                        <label><input type="radio" name="status_3245678" value="Present" checked> Present</label>
+                        <label><input type="radio" name="status_3245678" value="Absent"> Absent</label>
+                        <label><input type="radio" name="status_3245678" value="Late"> Late</label>
+                    </td>
+                </tr>
+            </table>
 
-        <tr>
-            <td>3236821</td>
-            <td>محمد علي</td>
-            <td>Present</td>
-        </tr>
+            <br>
+            <button class="btn-green" onclick="saveAttendance()">Save Attendance</button>
+            <button class="btn-blue" onclick="markAllPresent()">Mark All Present</button>
+            <button class="btn-red" onclick="markAllAbsent()">Mark All Absent</button>
+        </div>
 
-        <tr>
-            <td>3244178</td>
-            <td>لينا أحمد</td>
-            <td>Present</td>
-        </tr>
+        <!-- Summary -->
+        <div class="section">
+            <h2>Attendance Summary</h2>
+            <ul class="summary-list">
+                <li><b>Total Students:</b> <span id="summaryTotal">6</span></li>
+                <li><b>Present:</b> <span id="summaryPresent" class="status-present">4</span></li>
+                <li><b>Absent:</b> <span id="summaryAbsent" class="status-absent">2</span></li>
+                <li><b>Late:</b> <span id="summaryLate" class="status-late">0</span></li>
+            </ul>
+        </div>
 
-        <tr>
-            <td>3239254</td>
-            <td>يوسف محمود</td>
-            <td>Absent</td>
-        </tr>
+        <!-- Notes -->
+        <div class="section">
+            <h2>Attendance Notes</h2>
+            <label for="attendanceNotes">Notes:</label>
+            <textarea id="attendanceNotes" rows="4" placeholder="Write attendance notes here..."></textarea>
+        </div>
 
-        <tr>
-            <td>3245678</td>
-            <td>نور خالد</td>
-            <td>Present</td>
-        </tr>
-    </table>
+    </div>
 
-    <hr>
+    <div class="footer">
+        <p>Attendance Management System - Developed by <b>Muhab Bani Younis</b></p>
+        <p>University of Jordan - Academic Year 2025/2026</p>
+    </div>
 
-    <h2>Attendance Summary</h2>
-
-    <ul>
-        <li>Total Students: 6</li>
-        <li>Present Students: 4</li>
-        <li>Absent Students: 2</li>
-    </ul>
-
-    <hr>
-
-    <h2>Student Search</h2>
-
-    <form>
-        <label>Student ID:</label>
-        <input type="text">
-        <br><br>
-        <input type="submit" value="Search">
-    </form>
-
-    <hr>
-
-    <h2>Notes</h2>
-
-    <textarea rows="5" cols="40">Write attendance notes here...</textarea>
-
-    <hr>
-
-    <h2>Useful Links</h2>
-
-    <a href="https://www.ju.edu.jo">University of Jordan Website</a>
-
-    <hr>
-
-    <h3>System Information</h3>
-
-    <p>Attendance Management System</p>
-    <p>Developed by: Muhab Bani Younis</p>
-    <p>University of Jordan</p>
-    <p>Academic Year: 2025/2026</p>
-
+    <script src="script.js"></script>
 </body>
 </html>

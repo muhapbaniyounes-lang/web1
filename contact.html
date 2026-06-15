@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Attendance Management System</h1>
+        <p>University of Jordan - Web 1 Course</p>
+    </div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="students.html">Students</a>
+        <a href="reports.html">Reports</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
+
+    <div class="container">
+
+        <!-- About -->
+        <div class="section">
+            <h2>About This System</h2>
+            <p>The Attendance Management System is a web-based application developed as a project for the <b>Web 1 (WEB101)</b> course at the University of Jordan. It allows instructors to track student attendance, manage student records, and generate attendance reports.</p>
+            <br>
+            <p><b>Features:</b></p>
+            <ul>
+                <li>Mark daily attendance (Present, Absent, Late)</li>
+                <li>Add and manage student records</li>
+                <li>Search students by ID or name</li>
+                <li>View attendance reports and statistics</li>
+                <li>View class schedule and important dates</li>
+            </ul>
+        </div>
+
+        <!-- Developer Info -->
+        <div class="section">
+            <h2>Developer Information</h2>
+            <ul class="info-list">
+                <li><b>Developer:</b> Muhab Bani Younis</li>
+                <li><b>University:</b> University of Jordan</li>
+                <li><b>Faculty:</b> King Abdullah II School of Information Technology</li>
+                <li><b>Course:</b> Web 1 (WEB101)</li>
+                <li><b>Instructor:</b> Dr. Ahmad</li>
+                <li><b>Academic Year:</b> 2025/2026</li>
+            </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="section">
+            <h2>Contact Us</h2>
+
+            <div class="alert alert-success" id="contactAlert">Message sent successfully! We will get back to you soon.</div>
+            <div class="alert alert-error" id="contactError">Please fill in all required fields.</div>
+
+            <form id="contactForm" onsubmit="submitContact(event)">
+                <label for="contactName">Full Name: *</label>
+                <input type="text" id="contactName" placeholder="Enter your full name" required>
+
+                <label for="contactEmail">Email: *</label>
+                <input type="email" id="contactEmail" placeholder="Enter your email" required>
+
+                <label for="contactSubject">Subject:</label>
+                <select id="contactSubject">
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Attendance Issue">Attendance Issue</option>
+                    <option value="Technical Problem">Technical Problem</option>
+                    <option value="Suggestion">Suggestion</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="contactMessage">Message: *</label>
+                <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <br>
+                <button type="submit" class="btn-green">Send Message</button>
+                <button type="button" class="btn-blue" onclick="resetContactForm()">Clear Form</button>
+            </form>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="section">
+            <h2>Contact Details</h2>
+            <table>
+                <tr>
+                    <th>Contact Method</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>University Website</td>
+                    <td><a href="https://www.ju.edu.jo" target="_blank">www.ju.edu.jo</a></td>
+                </tr>
+                <tr>
+                    <td>Department Email</td>
+                    <td>cs@ju.edu.jo</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>+962 6 535 5000</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>University of Jordan, Amman, Jordan</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- FAQ -->
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+
+            <p><b>Q: How is attendance recorded?</b></p>
+            <p>A: The instructor marks each student as Present, Absent, or Late at the beginning of each lecture.</p>
+            <br>
+
+            <p><b>Q: What happens if I miss too many classes?</b></p>
+            <p>A: Students who miss more than 25% of classes receive a warning. Missing more than 50% may result in being denied entry to the final exam.</p>
+            <br>
+
+            <p><b>Q: Can I submit a medical excuse?</b></p>
+            <p>A: Yes, medical excuses must be submitted to the instructor within one week of the absence.</p>
+            <br>
+
+            <p><b>Q: How can I check my attendance record?</b></p>
+            <p>A: You can view your attendance record on the <a href="reports.html">Reports</a> page.</p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Attendance Management System - Developed by <b>Muhab Bani Younis</b></p>
+        <p>University of Jordan - Academic Year 2025/2026</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

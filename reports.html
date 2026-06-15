@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System - Reports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Attendance Management System</h1>
+        <p>University of Jordan - Web 1 Course</p>
+    </div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="students.html">Students</a>
+        <a href="reports.html" class="active">Reports</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container">
+
+        <!-- Overall Stats -->
+        <div class="section">
+            <h2>Overall Statistics</h2>
+            <ul class="summary-list">
+                <li><b>Total Students:</b> 6</li>
+                <li><b>Total Lectures:</b> 14</li>
+                <li><b>Average Attendance:</b> 72%</li>
+                <li><b>Students at Risk:</b> <span class="status-absent">2</span></li>
+            </ul>
+        </div>
+
+        <!-- Filter -->
+        <div class="section">
+            <h2>Filter Report</h2>
+
+            <label for="reportFrom">From Date:</label>
+            <input type="date" id="reportFrom">
+
+            <label for="reportTo">To Date:</label>
+            <input type="date" id="reportTo">
+
+            <label for="reportStatus">Status Filter:</label>
+            <select id="reportStatus">
+                <option value="all">All Students</option>
+                <option value="good">Good Standing (75% or more)</option>
+                <option value="warning">Warning (50% - 74%)</option>
+                <option value="danger">At Risk (less than 50%)</option>
+            </select>
+
+            <br>
+            <button class="btn-blue" onclick="filterReport()">Generate Report</button>
+            <button class="btn-blue" onclick="resetFilter()">Reset</button>
+        </div>
+
+        <!-- Report Table -->
+        <div class="section">
+            <h2>Student Attendance Report</h2>
+            <table>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                    <th>Late</th>
+                    <th>Attendance %</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+            <table id="reportTable">
+                <tr data-percentage="93">
+                    <td>3237482</td>
+                    <td>Ahmad Mohammad</td>
+                    <td>13</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>93%</td>
+                    <td class="status-present">Good</td>
+                </tr>
+                <tr data-percentage="43">
+                    <td>3241537</td>
+                    <td>Sara Khaled</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>0</td>
+                    <td>43%</td>
+                    <td class="status-absent">At Risk</td>
+                </tr>
+                <tr data-percentage="79">
+                    <td>3236821</td>
+                    <td>Mohammad Ali</td>
+                    <td>11</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>79%</td>
+                    <td class="status-present">Good</td>
+                </tr>
+                <tr data-percentage="86">
+                    <td>3244178</td>
+                    <td>Lina Ahmad</td>
+                    <td>12</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>86%</td>
+                    <td class="status-present">Good</td>
+                </tr>
+                <tr data-percentage="36">
+                    <td>3239254</td>
+                    <td>Yousef Mahmoud</td>
+                    <td>5</td>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>36%</td>
+                    <td class="status-absent">At Risk</td>
+                </tr>
+                <tr data-percentage="64">
+                    <td>3245678</td>
+                    <td>Noor Khaled</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>1</td>
+                    <td>64%</td>
+                    <td class="status-late">Warning</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Visual Chart -->
+        <div class="section">
+            <h2>Attendance Chart</h2>
+
+            <div class="bar-container">
+                <p class="bar-label">Ahmad Mohammad</p>
+                <div class="bar-track">
+                    <div class="bar-fill bar-green" style="width: 93%;">93%</div>
+                </div>
+            </div>
+
+            <div class="bar-container">
+                <p class="bar-label">Sara Khaled</p>
+                <div class="bar-track">
+                    <div class="bar-fill bar-red" style="width: 43%;">43%</div>
+                </div>
+            </div>
+
+            <div class="bar-container">
+                <p class="bar-label">Mohammad Ali</p>
+                <div class="bar-track">
+                    <div class="bar-fill bar-green" style="width: 79%;">79%</div>
+                </div>
+            </div>
+
+            <div class="bar-container">
+                <p class="bar-label">Lina Ahmad</p>
+                <div class="bar-track">
+                    <div class="bar-fill bar-green" style="width: 86%;">86%</div>
+                </div>
+            </div>
+
+            <div class="bar-container">
+                <p class="bar-label">Yousef Mahmoud</p>
+                <div class="bar-track">
+                    <div class="bar-fill bar-red" style="width: 36%;">36%</div>
+                </div>
+            </div>
+
+            <div class="bar-container">
+                <p class="bar-label">Noor Khaled</p>
+                <div class="bar-track">
+                    <div class="bar-fill bar-orange" style="width: 64%;">64%</div>
+                </div>
+            </div>
+
+            <br>
+            <p><b>Legend:</b> <span class="status-present">Green = Good (75%+)</span> | <span class="status-late">Orange = Warning (50-74%)</span> | <span class="status-absent">Red = At Risk (below 50%)</span></p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Attendance Management System - Developed by <b>Muhab Bani Younis</b></p>
+        <p>University of Jordan - Academic Year 2025/2026</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
